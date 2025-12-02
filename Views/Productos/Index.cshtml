@@ -1,0 +1,34 @@
+@model List<ExamenFinal.Models.Producto>
+
+<h1>Inventario de Productos</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+    </tr>
+
+@foreach (var p in Model)
+{
+    <tr>
+        <td>@p.Nombre</td>
+        <td>@p.Precio</td>
+    </tr>
+}
+</table>
+
+<hr />
+
+<h2>Producto Más Caro</h2>
+
+@if (ViewBag.ProductoMasCaro != null)
+{
+    <p><strong>@ViewBag.ProductoMasCaro.Nombre</strong> – $@ViewBag.ProductoMasCaro.Precio</p>
+}
+else
+{
+    <p>No disponible.</p>
+}
+
+<a asp-action="Crear" class="btn btn-success mb-3">Agregar Producto</a>
+
